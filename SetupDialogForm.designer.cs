@@ -168,6 +168,7 @@ namespace ASCOM.DarkSkyGeek
             // prependDeviceNameChk
             // 
             this.prependDeviceNameChk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.prependDeviceNameChk.AutoSize = true;
             this.prependDeviceNameChk.Location = new System.Drawing.Point(12, 303);
             this.prependDeviceNameChk.Name = "prependDeviceNameChk";
             this.prependDeviceNameChk.Size = new System.Drawing.Size(202, 17);
