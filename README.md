@@ -19,6 +19,10 @@ Upon connecting the ASCOM Switch Hub, you should be able to see all the switches
 
 ![Screenshot of equipment switch tab in N.I.N.A.](screenshot2.png)
 
+If you happen to have to switches or gauges named exactly the same way, you can enable the option to prepend the device name to each switch. That option is disabled by default because few people will encounter that issue, and with that option, the N.I.N.A. UI would look a little bit "busy":
+
+![Screenshot of equipment switch tab in N.I.N.A. with the device name prepended to each switch](screenshot3.png)
+
 ## Downloading And Installing The Driver
 
 **Step 1:** Download the driver from the [releases page](https://github.com/jlecomte/ascom-switch-hub/releases), and place the file `ASCOM.DarkSkyGeek.SwitchHub.dll` somewhere on your system (example: `C:\Users\julien\ascom-switch-hub\`).
