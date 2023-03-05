@@ -126,4 +126,7 @@
   <data name="descriptionLabel.Text" xml:space="preserve">
     <value>Select the switch devices you want to connect to. This driver will connect to all the selected devices. It will then forward requests from the client application to the necessary device(s), allowing you to interact with all kinds of switch devices, even if your application can only connect to one device at a time, as is the case with N.I.N.A.</value>
   </data>
+  <metadata name="prependDeviceNameChkToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

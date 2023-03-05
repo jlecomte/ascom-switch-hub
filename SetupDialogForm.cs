@@ -41,7 +41,7 @@ namespace ASCOM.DarkSkyGeek
                 {
                     DataGridViewSwitchDevice dgvSwitchDevice = new DataGridViewSwitchDevice(deviceId, deviceName)
                     {
-                        Selected = SwitchHub.devices.Exists(x => x.Id == deviceId)
+                        Selected = hub.devices.Exists(x => x.Id == deviceId)
                     };
                     dgvSwitchDeviceList.Add(dgvSwitchDevice);
                 }
@@ -55,26 +55,30 @@ namespace ASCOM.DarkSkyGeek
             switchDevicesDataGridView.DataSource = source;
 
             chkTrace.Checked = hub.tl.Enabled;
+            prependDeviceNameChk.Checked = hub.prependDeviceName;
 
             if (hub.Connected)
             {
                 switchDevicesDataGridView.Enabled = false;
                 chkTrace.Enabled = false;
+                prependDeviceNameChk.Enabled = false;
             }
         }
 
         private void cmdOK_Click(object sender, EventArgs e)
         {
-            SwitchHub.devices.Clear();
+            hub.devices.Clear();
+
             foreach (DataGridViewSwitchDevice dgvSwitchDevice in dgvSwitchDeviceList)
             {
                 if (dgvSwitchDevice.Selected)
                 {
-                    SwitchHub.devices.Add(new SwitchDevice(dgvSwitchDevice.Id, dgvSwitchDevice.Name));
+                    hub.devices.Add(new SwitchDevice(dgvSwitchDevice.Id, dgvSwitchDevice.Name));
                 }
             }
 
             hub.tl.Enabled = chkTrace.Checked;
+            hub.prependDeviceName = prependDeviceNameChk.Checked;
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)

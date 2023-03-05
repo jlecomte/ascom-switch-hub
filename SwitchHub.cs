@@ -46,11 +46,15 @@ namespace ASCOM.DarkSkyGeek
         internal static string traceStateProfileName = "Trace Level";
         internal static string traceStateDefault = "false";
 
+        internal static string prependDeviceNameProfileName = "Prepend Device Name";
+        internal static string prependDeviceNameDefault = "false";
+
         internal static string devicesProfileName = "Switch Devices";
         internal static string devicesDefault = string.Empty;
 
         // Variables to hold the current device configuration
-        internal static List<SwitchDevice> devices = new List<SwitchDevice>();
+        internal bool prependDeviceName = false;
+        internal List<SwitchDevice> devices = new List<SwitchDevice>();
 
         /// <summary>
         /// Private variable to hold the connected state
@@ -280,9 +284,8 @@ namespace ASCOM.DarkSkyGeek
         {
             get
             {
-                string name = "Short driver name - please customise";
-                tl.LogMessage("Name Get", name);
-                return name;
+                tl.LogMessage("Name Get", driverDescription);
+                return driverDescription;
             }
         }
 
@@ -315,7 +318,8 @@ namespace ASCOM.DarkSkyGeek
             CheckConnected("GetSwitchName");
             Validate("GetSwitchName", id);
             var (driver, switchId) = getDriverAndSwitchId(id);
-            return driver.GetSwitchName(switchId);
+            var switchName = driver.GetSwitchName(switchId);
+            return prependDeviceName ? driver.Name + " - " + switchName : switchName;
         }
 
         /// <summary>
@@ -650,6 +654,8 @@ namespace ASCOM.DarkSkyGeek
 
                 tl.Enabled = Convert.ToBoolean(driverProfile.GetValue(driverID, traceStateProfileName, string.Empty, traceStateDefault));
 
+                prependDeviceName = Convert.ToBoolean(driverProfile.GetValue(driverID, prependDeviceNameProfileName, string.Empty, prependDeviceNameDefault));
+
                 // Read device ids from ASCOM profile. Also filter out devices that
                 // are no longer registered on the system (which can happen...)
                 devices.Clear();
@@ -675,6 +681,7 @@ namespace ASCOM.DarkSkyGeek
                 driverProfile.DeviceType = "Switch";
                 driverProfile.WriteValue(driverID, traceStateProfileName, tl.Enabled.ToString());
                 driverProfile.WriteValue(driverID, devicesProfileName, string.Join(",", devices.Select(device => device.Id)));
+                driverProfile.WriteValue(driverID, prependDeviceNameProfileName, prependDeviceName.ToString());
             }
         }
 

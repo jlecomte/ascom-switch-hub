@@ -28,6 +28,7 @@ namespace ASCOM.DarkSkyGeek
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupDialogForm));
@@ -39,6 +40,8 @@ namespace ASCOM.DarkSkyGeek
             this.SwitchDeviceSelected = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.SwitchDeviceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionLabel = new System.Windows.Forms.Label();
+            this.prependDeviceNameChk = new System.Windows.Forms.CheckBox();
+            this.prependDeviceNameChkToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DSGLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.switchDevicesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +51,7 @@ namespace ASCOM.DarkSkyGeek
             this.cmdOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cmdOK.Image = global::ASCOM.DarkSkyGeek.Properties.Resources.icon_ok_24;
-            this.cmdOK.Location = new System.Drawing.Point(324, 337);
+            this.cmdOK.Location = new System.Drawing.Point(370, 310);
             this.cmdOK.Name = "cmdOK";
             this.cmdOK.Size = new System.Drawing.Size(59, 36);
             this.cmdOK.TabIndex = 0;
@@ -60,7 +63,7 @@ namespace ASCOM.DarkSkyGeek
             this.cmdCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cmdCancel.Image = global::ASCOM.DarkSkyGeek.Properties.Resources.icon_cancel_24;
-            this.cmdCancel.Location = new System.Drawing.Point(389, 337);
+            this.cmdCancel.Location = new System.Drawing.Point(435, 310);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(59, 36);
             this.cmdCancel.TabIndex = 1;
@@ -71,7 +74,7 @@ namespace ASCOM.DarkSkyGeek
             // 
             this.chkTrace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkTrace.AutoSize = true;
-            this.chkTrace.Location = new System.Drawing.Point(12, 356);
+            this.chkTrace.Location = new System.Drawing.Point(12, 326);
             this.chkTrace.Name = "chkTrace";
             this.chkTrace.Size = new System.Drawing.Size(69, 17);
             this.chkTrace.TabIndex = 6;
@@ -129,7 +132,7 @@ namespace ASCOM.DarkSkyGeek
             this.switchDevicesDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.switchDevicesDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.switchDevicesDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.switchDevicesDataGridView.Size = new System.Drawing.Size(436, 225);
+            this.switchDevicesDataGridView.Size = new System.Drawing.Size(482, 182);
             this.switchDevicesDataGridView.TabIndex = 8;
             this.switchDevicesDataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.switchDevicesDataGridView_CurrentCellDirtyStateChanged);
             // 
@@ -158,15 +161,29 @@ namespace ASCOM.DarkSkyGeek
             | System.Windows.Forms.AnchorStyles.Right)));
             this.descriptionLabel.Location = new System.Drawing.Point(107, 13);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(341, 87);
+            this.descriptionLabel.Size = new System.Drawing.Size(387, 87);
             this.descriptionLabel.TabIndex = 9;
             this.descriptionLabel.Text = resources.GetString("descriptionLabel.Text");
+            // 
+            // prependDeviceNameChk
+            // 
+            this.prependDeviceNameChk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.prependDeviceNameChk.Location = new System.Drawing.Point(12, 303);
+            this.prependDeviceNameChk.Name = "prependDeviceNameChk";
+            this.prependDeviceNameChk.Size = new System.Drawing.Size(202, 17);
+            this.prependDeviceNameChk.TabIndex = 10;
+            this.prependDeviceNameChk.Text = "Prepend device name to each switch";
+            this.prependDeviceNameChkToolTip.SetToolTip(this.prependDeviceNameChk, "This option is especially useful if you have\r\nswitches or gauges with the same na" +
+        "me\r\nacross several devices. It is disabled by default\r\nbecause it can make the s" +
+        "witch UI a little busy.");
+            this.prependDeviceNameChk.UseVisualStyleBackColor = true;
             // 
             // SetupDialogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 381);
+            this.ClientSize = new System.Drawing.Size(506, 354);
+            this.Controls.Add(this.prependDeviceNameChk);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.switchDevicesDataGridView);
             this.Controls.Add(this.DSGLogo);
@@ -198,5 +215,7 @@ namespace ASCOM.DarkSkyGeek
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SwitchDeviceSelected;
         private System.Windows.Forms.DataGridViewTextBoxColumn SwitchDeviceName;
+        private System.Windows.Forms.CheckBox prependDeviceNameChk;
+        private System.Windows.Forms.ToolTip prependDeviceNameChkToolTip;
     }
 }
