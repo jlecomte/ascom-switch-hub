@@ -26,7 +26,7 @@ If you happen to have to switches or gauges named exactly the same way, you can 
 
 ## Downloading And Installing The Driver
 
-Starting with version `1.1.1`, you can install the ASCOM driver by running the executable setup file that you will find in the [releases page](https://github.com/jlecomte/ascom-switch-hub/releases). By default, it places files under `C:\Program Files (x86)\Dark Sky Geek\OAG Focuser ASCOM Driver`.
+Starting with version `1.1.1`, you can install the ASCOM driver by running the executable setup file that you will find in the [releases page](https://github.com/jlecomte/ascom-switch-hub/releases). By default, it places files under `C:\Program Files (x86)\Dark Sky Geek\ASCOM Switch Hub`.
 
 ## Compiling The Driver (For Developers Only)
 
