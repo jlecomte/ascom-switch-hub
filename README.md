@@ -1,5 +1,9 @@
 # ASCOM Switch Hub
 
+I do not charge anything to create and maintain these open-source projects. But if you would like to say "thanks" for this project, feel free to send any amount through Paypal using the button below. I really appreciate your support!
+
+[![](images/donate.png)](https://www.paypal.com/donate/?hosted_button_id=49UXY8F6VVYFA)
+
 - [Introduction](#introduction)
 - [Screenshots](#screenshots)
 - [Downloading And Installing The Driver](#downloading-and-installing-the-driver)
@@ -14,15 +18,15 @@ For each device type (camera, focuser, telescope mount, etc.), [N.I.N.A.](https:
 
 To select the switch devices to connect to, open the settings dialog:
 
-![Screenshot of settings dialog](Images/screenshot1.png)
+![Screenshot of settings dialog](images/screenshot1.png)
 
 Upon connecting the ASCOM Switch Hub, you should be able to see all the switches for all the selected devices:
 
-![Screenshot of equipment switch tab in N.I.N.A.](Images/screenshot2.png)
+![Screenshot of equipment switch tab in N.I.N.A.](images/screenshot2.png)
 
 If you happen to have to switches or gauges named exactly the same way, you can enable the option to prepend the device name to each switch. That option is disabled by default because few people will encounter that issue, and with that option, the N.I.N.A. UI would look a little bit "busy":
 
-![Screenshot of equipment switch tab in N.I.N.A. with the device name prepended to each switch](Images/screenshot3.png)
+![Screenshot of equipment switch tab in N.I.N.A. with the device name prepended to each switch](images/screenshot3.png)
 
 ## Downloading And Installing The Driver
 
